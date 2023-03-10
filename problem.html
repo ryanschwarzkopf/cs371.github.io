@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Project Problem Statement</h1>
+    <pre>
+
+Requirements Specification Outline
+TEAM T.B.D.
+Product name: (TBD but actually it needs to be a good name)
+1. Introduction
+1.1 Purpose of Product
+As we all know team T.B.D. is creating an educational application for intro CS students. We will be creating an application that will give a visual representation to a pseudo code about a particular data structure. The purpose of this educational application is to provide extra insight on specific intro data structure types. This application is meant to provide easy accessible information for anyone that needs a visual representation of how each data structure communicates with the computer. It is noted that this is not meant to teach data structure. This application is meant for reviewing and further understanding the topic.
+
+
+Inspiration for project: https://youtu.be/Fg4VIjTdHx4
+
+
+1.2 Scope of Product
+What product does: A website that incorporates html,css,javascript, and java. The website will be made up of multiple pages that include: binary search trees, stack/queues, and singly linked list. Each data structure is accompanied by its proper methods/functions. These methods will have a pseudo code and a following animation(if applicable) for the user. User input will be limited however, all animations will be set and stone.
+
+
+Scope of product:
+* User chooses functions/methods on website page
+* The data structure will have a drop down menu to pick a certain methods that applies to the selected data structure
+* A pseudo code and animation will be provided for each data structure
+   * The pseudo code will have an arrow pointing to each line as the animation is playing
+* Supply brief descriptions on the data structures after animations(like zybook)
+   * Supply example programs (maybe depends we do not want to get in trouble)
+* User input will not be allowed
+* Simple web design that used HTML, CSS, goJS, and (maybe Java)
+* Animation will have pause/play function
+
+
+
+
+1.3 Acronyms, Abbreviations, Definitions
+data structure:  A specialized format for organizing, processing, retrieving and storing data. There are several basic and advanced types of data structures, all designed to arrange data to suit a specific purpose. Data structures make it easy for users to access and work with the data they need in appropriate ways.
+* Stacks: linear data structure that follows LIFO(Last in first out)
+* Queues: linear data structure that stores the elements sequentially. FIFO
+* Linked list: consists of a data element known as a node. And each node consists of two fields: one field has data, and in the second field, the node has an address that keeps a reference to the next node.
+* Binary Trees: a tree-type non-linear data structure with a maximum of two children for each parent
+* Arrays: collection of items stored at contiguous memory locations. The idea is to store multiple items of the same type together.
+Not data structure but important concepts:
+* For/while Loops: programming construct that allows a program to do an action[s] repetitively as long as the conditions defined for the loop are met.
+* If/Else: a conditional statement that runs a different set of statements depending on whether an expression is true or false
+
+
+
+1.4 References
+Referring to this youtuber for animations/pseudo code:
+https://www.youtube.com/@itsdineshvaryani/about
+This is what we will use for interactive diagram(animations):
+https://gojs.net/latest/index.html
+2. General Description of Product
+This section contains a longer but not exhaustive description of your product.
+2.1 Context of Product
+Products should be served in websites with HTML, CSS, JS, and java SimpleWebServer.
+
+
+2.2 Domain Model with Description
+
+This is a domain model that accurately describes the behavior of our product. The home page will direct the user to the proper page that they select. After the user is redirected to that page, that page will direct the user to the specific method they choose.. All pages will redirect to the home page no matter where the user is located within the directories.
+
+
+2.3 Product Functions (general)
+<div>
+    <img src="Domain Model.jpeg" alt="Domain Model">
+    <p>Domain model can also be located in Repo.</p>
+</div>
+
+Product will be a website. The website will include interactive diagrams that are implemented by javascript. Each interactive diagram is how the animation will be designed. With each animation a pseudo code(that is also animated) will correspond with each animation. The product will be able to pause and play each animation with real time reloading. When a user refreshes the page the page will reload and reset.
+2.4 User Characteristics and Expectations
+Target audience:
+User’s are students who want a refresher, better understanding of provided data structures, or struggling with the information. User’s are able to choose which data structure they would like to review. Each data structure allows the user to pick which following method(s) they want to see. 
+User’s will be able to pause and play animations at their own time frame. User’s will be able to access example programs with short descriptions and explanations. User’s will experience a website that demonstrates the animation of how the data structure works based on the given pseudo code.
+
+
+2.5 Constraints
+There will be no user input. Each example will be set and stone and not changed by the user.  Users will not be able to save where they left off or favorite specific data structures.
+For team TBD our constraint is implementing pause/play/rewind/forward and how the pseudo code will update when the user use’s this function. 
+2.6 Assumptions and Dependencies
+Our team depends on Visual Studio Code IDE. This IDE is storing all of our work in order for us as a team to work on the project together.
+Gojs.net is an external software package that our product will depend on for the animations.
+
+
+3. Functional Requirements
+
+
+1. Binary Trees
+   1. Insert()
+   2. Remove()
+   3. Search() recursion/non recursive
+2. Linked List
+   1. Insert(): user defined parameters or hard code?
+   2. Remove()
+   3. Search()
+   4. Length()
+   5. Sort()
+   6. Possible use of interface???
+3. Stacks/Queues
+   1. STACKS
+      1. INTERFACES
+      2. Push()
+      3. Pop()
+      4. Top()
+      5. Seek()
+   2. Queues
+      1. INTERFACES
+      2. Enqueue()
+      3. Dequeue()
+4. PSeudo code
+5. Animated interactive diagram
+https://github.com/ryanschwarzkopf/TeamTBD/blob/main/userstories.html
+
+
+4. System and Non-functional Requirements
+
+4.1 External Interface Requirements (User,Hardware,Software,Communications)
+Describe what kinds of interfaces your product has, and what they do. Then list specific requirements using item numbers as NF.4.1.X.
+NF.4.1.1: Web User Interface or Web app.
+* Allows users to interact with the content or the  software running on a remote server through a Web browser.
+NF.4.1.2: goJS.net uses JS library software
+* The main software that will contribute to the animation and pseudocode
+
+4.2 Performance Requirements
+Describe your product's performance needs. Then list specific requirements using item numbers as NF.4.2.X.
+This product needs a running web server.
+ NF.4.2.1.SimpleWebServer we have created to launch our website
+NF.4.2.2. a domain in order to have website running at all time and all users can access it
+
+
+4.3 Design Constraints
+Describe external requirements that will constrain your design choices. Then list specific requirements using item numbers as NF.4.3.X.
+We are all taking Compilers with Dr. Cooper takes up a lot of our time. Therefore it is difficult to put in all the effort since we have to distribute our brains for other courses. Our design process will include minimal styling effort (meaning we will not be focusing on styling primarily we will be focusing on the functions that need to be implemented).
+NF.4.3.1. Time management
+NF.4.3.2. Group meetings outside of school
+NF.4.3.2. Proper Group communication
+NF.4.3.3.Prioritizing what is important rather than just web styling
+
+4.4 Quality Requirements
+What quality expectations do your users have? Is your system life-critical? Describe such issues, then list specific requirements using item numbers as NF.4.4.X.
+The quality expectations users will have that it is a functional website. The website will access different pages (without 404 error). Each web page will be functional and no issues will be encountered. User’s will be able to access web pages with ease and no confusion. User’s will also experience a simple web design so that it is not overwhelming. The product is not system life-critical.
+ NF.4.4.1. Functional website
+ NF.4.4.2.User friendly
+ NF.4.4.3.Not server issues
+ NF.4.4.4 All web pages work accurately and sizes based on which device a user is on
+
+4.5 Other Requirements
+Anything else you need to say. Use item numbers NF.4.5.X.
+NF.4.5.1. Accurately describing data structures
+5. Appendices
+Include external documents that describe domain or constraints or any necessary information. Use URL links if possible.
+* goJs.net might cause constraints due to that it is not an open-source application and possibility of purchasing the software
+* Accurately describing each data structure properly
+    </pre>
+</body>
+</html>
