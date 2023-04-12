@@ -2,8 +2,11 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" rel="noopener" target="_blank" href="subpages.css">
+        <script src="https://unpkg.com/gojs"></script>
+        <script src="stack.js"></script>
     </head>
-    <body>
+    <body onload="init()">
+
         <div id="head_div">
             <h1>Stack</h1>
         </div>
@@ -31,6 +34,9 @@
         <div class="bottom" align="center">
             <button onclick="window.location.href='home.html';">HOME</button>
         </div>
+
+        <!-- create diagram  -->
+        <div id="diagramDiv"></div>
 
     </body>
 </html>

@@ -60,3 +60,12 @@
     width: 80%; /* set the width of the container element */
     margin: 0 auto;
   }
+
+  #diagramDiv {
+    position: absolute;
+    width: 98.5vw;
+    height:50vh;
+    border:1px solid black;
+    margin: auto;
+
+  }
