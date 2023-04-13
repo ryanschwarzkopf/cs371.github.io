@@ -15,16 +15,12 @@ function init() {
     var linkDataArray = [
         { to: "beta", from: "alpha", color: "red"}
     ];
-    prevInput = "beta";
     myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
     myDiagram.nodeTemplate =
         $(go.Node, "Auto",
             $(go.Shape, "RoundedRectangle", { fill: "white"},
                 new go.Binding("fill", "color")
             ),
-            $(go.TextBlock, "text", 
-                new go.Binding("text", "key")
-            )
         );
     myDiagram.linkTemplate =
         $(go.Link,
@@ -56,20 +52,13 @@ function init() {
     isEmptyButton.addEventListener("click", TODO);
 } // end init
 
-function addNode(model, input, prevInput) {
-    // Get a reference to the diagram model
-     // var model = myDiagram.model;
-  
-    // Create a new node data object with a unique key and some default properties
-    var newNodeData = { key: input.toString() };
-    var newLinkData = { to: input.toString(), from: prevInput.toString() }
-  
-    // Add the new node data object to the model
-    if (newNodeData in insertedNodeKeys) {
-        
-    } else {
-        model.addNodeData(newNodeData);
-        model.addLinkData(newLinkData);
+function addNode(model, input) {
+    var newNode = { key: getNextKey(), text: input.toString() };
+    model.addNodeData(newNode);
+    if(model.length !== 1) {
+        var prevNode = model.nodeDataArray[model.nodeDataArray.length - 2];
+        var newLink = { to: newNode.key, from: prevNode.key }
+        model.addLinkData(newLink);
     }
   }
 
