@@ -15,17 +15,16 @@
         <!-- Push, Pop, Top, isEmpty -->
 
         <div class="button-container">
-            <button class="button buttons">Push</button>
-            <button class="button buttons">Pop</button>
-            <button class="button buttons">Top</button>
-            <button class="button buttons">isEmpty</button>
+            <button class="button buttons" type="button" id="Push_Button">Push</button>
+            <button class="button buttons" type="button" id="Pop_Button">Pop</button>
+            <button class="button buttons" type="button" id="Top_Button">Top</button>
+            <button class="button buttons" type="button" id="isEmpty_Button">isEmpty</button>
         </div>
 
         <div id="input-container">
             <div id="inputForm">
-                <form action="">
-                    <label>Input</label>
-                    <input type="text">
+                <form action="" onSubmit="return false;">
+                    <input type="text" id="myInput">
                     <br>
                 </form>
             </div>
