@@ -20,8 +20,8 @@ function init() {
                 new go.Binding("fill", "color"))
         );
 
-    var enqueueButton = document.getElementById("Enqueue_Button");
-    enqueueButton.addEventListener("click", 
+    var insertButton = document.getElementById("Insert_Button");
+    insertButton.addEventListener("click", 
         function() {
             var inputVal = document.getElementById("myInput").value;
             if (inputVal === null) {
@@ -30,17 +30,22 @@ function init() {
             }
             addNode(myDiagram.model, inputVal);
         });
-    var dequeueButton = document.getElementById("Dequeue_Button");
-    dequeueButton.addEventListener("click", removeNode(myDiagram.model));
-    var peekButton = document.getElementById("Peek_Button");
-    peekButton.addEventListener("click", TODO);
-    var isNullButton = document.getElementById("isNull_Button");
-    isNullButton.addEventListener("click", isNull(myDiagram.model));
+    var removeButton = document.getElementById("Remove_Button");
+    removeButton.addEventListener("click", removeNode(myDiagram.model));
+    var searchButton = document.getElementById("Search_Button");
+    searchButton.addEventListener("click", function() {
+        var inputVal = document.getElementById("myInput").value;
+        if (inputVal === null) {
+            alert("Invalid input");
+            return;
+        }
+        searchNode(myDiagram, inputVal);
+    });
 } // end init
 
 function addNode(model, input) {
-    if(input == "") return; // don't make an empty nodes
-    var newNode = { key: keyValue.toString(), say: input.toString() };
+    if(input == "") return; // don't make any empty nodes
+    var newNode = { key: keyValue.toString(), say: input.toString(), loc: "50 50"};
     keyValue += 1;
     model.addNodeData(newNode);
     if(model.length !== 1) {
@@ -51,25 +56,15 @@ function addNode(model, input) {
 }
 
 function removeNode(model) {
-    if(nodeDataArray.length === 0) return;
-    model.removeNodeData(model.findNodeForKey(lowestKey));
-    lowestKey += 1;
+    if(model.nodeDataArray.length === 0) return;
+    model.removeNodeData(model.findNodeForKey());
 }
 
-function peek() {
-
-}
-
-function isNull(model) {
-    alert();
-    if(model.length === 0) {
-        document.getElementById("isNull_Button").innerHTML = "True";
-    } else {
-        document.getElementById("isNull_Button").innerHTML = "False";
+function searchNode(diagram, input) {
+    var node = diagram.findNodeForData({ say: input.toString() });
+    if(node === null) {console.log(diagram.model.nodeDataArray);}
+    if(node !== null) {
+        alert("found");
+        diagram.model.setDataProperty(node.data, "color", "red");    
     }
-    window.setTimeout(rewrite, 5000);
-}
-
-function rewrite() {
-    document.getElementById("isNull_Button").innerHTML = "isNull";
 }

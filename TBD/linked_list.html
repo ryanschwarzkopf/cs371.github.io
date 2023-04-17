@@ -5,22 +5,22 @@
         <script src="https://unpkg.com/gojs"></script>
         <script src="linked_list.js"></script>
     </head>
-    <body>
+    <body onload="init()">
         <div id="head_div">
             <h1>Linked Lists</h1>
         </div>
 
         <div class="button-container">
-            <button class="button buttons">Insert</button>
-            <button class="button buttons">Search</button>
-            <button class="button buttons">Remove</button>
+            <button class="button buttons" type="button" id="Insert_Button">Insert</button>
+            <button class="button buttons" type="button" id="Search_Button">Search</button>
+            <button class="button buttons" type="button" id="Remove_Button">Remove</button>
         </div>
 
         <div id="input-container">
             <div id="inputForm">
-                <form action="">
+                <form action="" onSubmit="return false;">
                     <label>Input</label>
-                    <input type="text">
+                    <input type="text" id="myInput">
                     <br>
                 </form>
             </div>
@@ -33,5 +33,10 @@
         <!-- create diagram  -->
         <div id="diagramDiv"></div>
 
+        <div>
+            <p>
+                
+            </p>
+        </div>
     </body>
 </html>
