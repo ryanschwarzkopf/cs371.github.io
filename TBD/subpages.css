@@ -69,3 +69,42 @@
     margin: auto;
 
   }
+
+  .result{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    white-space: pre-wrap;
+}
+.errorMessage{
+    color:red;
+}
+.message{
+    color: green;
+}
+.bottom{
+  height: 100%;
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-style: solid;
+  border-radius: 7px;
+}
+  .bottom:hover{
+    background-color: rgb(37, 165, 88);
+  }
+  .bottom:active{
+    background-color: rgb(69, 187, 116);
+  }
+
+.outputContainer{
+  background-color: #ece9ef;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
