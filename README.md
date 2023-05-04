@@ -1,3 +1,3 @@
 # TeamTBD
 Visual Struct
-[Index.html](index.html)
+https://ryanschwarzkopf.github.io/

@@ -17,7 +17,7 @@ class TreeNode {
   
     setBT_String(root.right, depth + 1);
 
-    answer += " ".repeat(depth * 4) + String(root.val) + "\n";
+    answer += "   ".repeat(depth * 4) + String(root.val) + "\n";
 
 
     setBT_String(root.left, depth + 1);
@@ -89,7 +89,10 @@ class TreeNode {
 
   insertButton.addEventListener('click', (e) =>{
     let value = getInputAndClearMessages();
-
+    if (array.length > 10) {
+      displayErrorMessage("Limit is ten element");
+      return;
+    }
     if( array.length == 0 ){
         displayErrorMessage("You need to create a binary tree before you can add elements");
         return;    
