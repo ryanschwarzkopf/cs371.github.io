@@ -8,7 +8,6 @@ setTimeout(function () {
   let popButton = document.getElementById("Pop_Button");
   let topButton = document.getElementById("Top_Button");
   let emptyButton = document.getElementById("isEmpty_Button");
-  // let container = document.getElementById("result");
 
   //to set all the messages (already done, kinda)
   let errorMessage = document.getElementById("errorMessage");
