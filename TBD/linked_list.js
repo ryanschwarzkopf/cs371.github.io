@@ -1,6 +1,7 @@
 function init() {
     const $ = go.GraphObject.make;
     myDiagram = $(go.Diagram, "diagramDiv");
+
     var nodeDataArray = [];
     var linkDataArray = [];
     keyValue = 0;
@@ -45,10 +46,10 @@ function init() {
 
 function addNode(model, input) {
     if(input == "") return; // don't make any empty nodes
-    var newNode = { key: keyValue.toString(), say: input.toString(), loc: "50 50"};
+    var newNode = { key: keyValue.toString(), say: input.toString(), position: new go.Point(100*keyValue, 0)};
     keyValue += 1;
     model.addNodeData(newNode);
-    if(model.length !== 1) {
+    if(model.length !== 1) { // if length is one, don't add a link
         var prevNode = model.nodeDataArray[model.nodeDataArray.length - 2];
         var newLink = { to: newNode.key, from: prevNode.key }
         model.addLinkData(newLink);
