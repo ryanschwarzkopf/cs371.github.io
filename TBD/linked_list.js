@@ -78,7 +78,7 @@ function addNode(model, input) {
         var prevNode = model.nodeDataArray[model.nodeDataArray.length - 2];
         var newLink = { to: newNode.key, from: prevNode.key }
         model.addLinkData(newLink);
-  }
+    }
 }
 
 function removeNode(model) {
@@ -93,16 +93,10 @@ async function searchNode(myDiagram, input) {
 
     // Iterate through the link data array
     myDiagram.links.each(async function(link) {
-        // Set the stroke width of the link to 1
-        link.strokeWidth = 2;
+        myDiagram.model.setDataProperty(link.data, "strokeWidth", 2);
         // Update the model to show the new stroke width
-        myDiagram.model.updateTargetBindings(link, "strokeWidth");
-        // Pause for one second using a helper function
         delay(1000);
-        // Set the stroke width of the link back to 0
-        link.strokeWidth = 0;
-        // Update the model to show the original stroke width
-        myDiagram.model.updateTargetBindings(link, "strokeWidth");
+        myDiagram.model.setDataProperty(link.data, "strokeWidth", 0);
     });
 }
 
