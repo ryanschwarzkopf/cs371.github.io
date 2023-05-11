@@ -22,13 +22,10 @@ setTimeout(function () {
   pushButton.addEventListener("click", (e) => {
     //cleaning everything
     getInputAndClearMessages();
-    console.log("asdfasdfsadfasdfasdfasd");
     clearAnswer();
-    console.log("asdfasdfsadfasdfasdfasd");
 
     //Displaying answer
     let value = getInput();
-    console.log("asdfasdfsadfasdfasdfasd");
     stack.push(value);
     displayStack();
 
@@ -46,18 +43,23 @@ setTimeout(function () {
 
     //Displaying answer
     let value = getInput();
+
+    let pop = stack[stack.length - 1]; //top most value on the stack
+
     //adding value to the actual stack
     stack.pop();
     displayStack();
 
     //notify the user about the update
-    displayMessage("Popped the top");
+    displayMessage("Popped the top on value: " + pop);
 
     if(stack.length == 0)
     {
       displayMessage("Nothing to be popped off the top!");
     }
   });
+
+
   //TOP METHOD ==============================================================
   topButton.addEventListener("click", (e) => {
     //cleaning everything
@@ -69,17 +71,18 @@ setTimeout(function () {
     let top = stack[stack.length - 1];
 
     //adding value to the actual stack
-    //stack.top(value);
     highlightElement();
 
     //notify the user about the update
-    displayMessage("Top most element on stack is " + value);
+    displayMessage("Top most element on stack is " + top);
 
     if(stack.length == 0)
     {
-      displayMessage("Nothing to be popped off the top!");
+      displayMessage("There is no top element on the stack!");
     }
   });
+
+
   //EMPTY METHOD ==============================================================
   emptyButton.addEventListener("click", (e) => {
     //cleaning everything
