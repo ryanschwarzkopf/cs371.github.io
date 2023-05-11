@@ -37,7 +37,7 @@ function init() {
     myDiagram.linkTemplate =
         new go.Link()
           .add(new go.Shape()
-              .bind(new go.Binding("strokeWidth", "", function() { return 0; }))
+              .bind(new go.Binding("strokeWidth", "", function() { return 1; }))
               .bind(new go.Binding("stroke", "color")))
           .add(new go.Shape()
               .bind(new go.Binding("toArrow", "", function() { return "Standard"; }))
@@ -56,7 +56,15 @@ function init() {
         });
     
     var removeButton = document.getElementById("Remove_Button");
-    removeButton.addEventListener("click", removeNode(myDiagram.model));
+    removeButton.addEventListener("click", function() {
+        var inputVal = document.getElementById("myInput").value;
+        if (inputVal === null) {
+            alert("Invalid input");
+            return;
+        }
+        removeNode(myDiagram, inputVal);
+    });
+    
     
     var searchButton = document.getElementById("Search_Button");
     searchButton.addEventListener("click", function() {
@@ -81,23 +89,24 @@ function addNode(model, input) {
     }
 }
 
-function removeNode(model) {
-    if(model.nodeDataArray.length === 0) return;
-    model.removeNodeData(model.findNodeForKey());
+function removeNode(myDiagram, value) {
+    if(myDiagram.model.nodeDataArray.length === 0) return;
+    if(searchNode(model, value) === -1) return;
+    myDiagram.model.removeNodeData(model.findNodeForKey(searchNode(model, value)));
 }
 
 async function searchNode(myDiagram, input) {
-    console.log("start");
-    await delay(1000); // Wait for 3 seconds
-    console.log("stop");
-
+    let i = 0;
     // Iterate through the link data array
     myDiagram.links.each(async function(link) {
         myDiagram.model.setDataProperty(link.data, "strokeWidth", 2);
         // Update the model to show the new stroke width
         delay(1000);
         myDiagram.model.setDataProperty(link.data, "strokeWidth", 0);
+        if(myDiagram.model.nodeDataArray[i].data.say === input.toString()) return i;
+        i++;
     });
+    return -1;
 }
 
 function delay(ms) {
