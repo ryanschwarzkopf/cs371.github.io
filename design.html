@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem</title>
+</head>
+<body>
+    <pre>
+Team TBD Design Documentation
+
+Models:
+Old Architecture Model<a href="./Arch.PDF">Diagram</a>
+  -This is a decomposition model. The purpose of this domain model was to have portrayal of the programmable units as well as flow of data.
+  -The model shows the project broken into programmable units.
+Updated Architecture Model<a href="./TBD Domain Model1024_1.jpg">Current Diagram</a>
+  -This model a publish-subscribe model. It is better because it represents user input and how the system responds to it.
+   The model shows user input options, the event handlers, and the output that goes to the user.
+
+Classes Hierarchy:
+index.html 
+           -> home.html : homestyles.css
+                        -> linked_list.html : subpages.css linked_list.js, go-debug.js
+                        -> stack.html : subpages.css stack.js 
+                        -> binarytree.html : subpages.css binarytree.js
+           -> problem.html 
+           -> userstories.html 
+           -> requirements.html 
+           -> architecture.html 
+           -> design.html 
+           -> testreport.html 
+
+Classes Functionality:
+index.html is the landing page for the github page. Contains a short summary and links to the other documentation and the project website
+home.html is a navigation page to visit linked list, stack, and binary tree subpages.
+linked_list.html has a short description of linked lists. It then can take input and can add nodes with the input text into the goJS diagram. It currently adds nodes in a random fashion and the link strokeWidth is turned on currently but it should be turned off. 
+The search function in the javascript file iterates through all the nodes and turns the link strokewidths to 1. It stops and returns the key to the node with the correct value.
+    This page is currently still in progress. 
+    There are bugs in the search and remove buttons in the javascript file. The add button also needs to be changed to add nodes in a way that better represents how linked list nodes would be put in the heap. It currently just places nodes randomly.
+stack.html implements a stack diagram with input section, and push, pop, and top buttons.
+binarytree.html implements a binary tree that with input section, a create tree, add node, and delete node buttons.
+
+Requirements: <a href="requirements.html">Requirements page</a>
+
+</pre>
+
+</body>
+</html>
